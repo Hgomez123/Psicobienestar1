@@ -1,0 +1,405 @@
+* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Estilos base para el header */
+header {
+    animation: backgroundZoom 10s infinite alternate ease-in-out; 
+    
+    background: linear-gradient(135deg, #7f8074, #a88873); /* Fondo degradado */
+    padding: 40px 40px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* Animación de fondo para el header */
+header::before {
+    content: '';
+    position: absolute;
+  
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    animation: shine 3s infinite linear;
+    z-index: 1;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Estilos para el logo */
+header .logo {
+    position: relative;
+    z-index: 2; /* Asegura que el logo esté por encima del efecto de brillo */
+    animation: floatLogo 4s infinite alternate ease-in-out
+}
+
+header .logo img {
+    max-width: 100%;
+    width: 200px; /* Tamaño del logo */
+    height: auto;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); /* Sombra para el logo */
+}
+@keyframes floatLogo {
+    1% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+    
+
+/* Efecto hover para el logo */
+header .logo:hover img {
+    transform: scale(1.1); /* Escala el logo al hacer hover */
+    opacity: 0.9; /* Ligera transparencia */
+}
+
+/* Animación de rotación al cargar la página */
+@keyframes rotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+header .logo img.loaded {
+    animation: rotateLogo 1s ease-in-out; /* Animación de rotación */
+}
+
+/* Estilos adicionales para el texto del header (opcional) */
+header h1 {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para el texto */
+}
+}
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #1999a5; /* Color al pasar el mouse */
+}
+
+.hero {
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    padding: 100px 100px;
+    text-align: center;
+}
+
+/* Estilos base para el título */
+.hero h1 {
+    font-size: 3em;
+    color: #a5d2dd; /* Color pastel base */
+    font-family: 'Poppins', sans-serif; /* Fuente moderna */
+    font-weight: 700; /* Grosor de la fuente */
+    text-align: center; /* Centrar el texto */
+    margin: 0;
+    padding: 20px;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, #a5d2dd, #968777, #afaf96); /* Degradado pastel */
+    -webkit-background-clip: text; /* Aplicar el degradado al texto */
+    -webkit-text-fill-color: transparent; /* Hacer el texto transparente */
+    animation: fadeIn 2s ease-in-out; /* Animación de aparición */
+}
+
+/* Efecto de sombra para el título */
+.hero h1::after {
+    
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, hwb(41 47% 32%), #b8e0d2, #d4a5dd); /* Degradado pastel */
+    border-radius: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Efecto hover para el título */
+.hero h1:hover::after {
+    transform: scaleX(1); /* Línea inferior animada */
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto de brillo al texto */
+.hero h1::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.hero h1:hover::before {
+    opacity: 1; /* Brillo al hacer hover */
+}
+}
+
+.hero p {
+    font-size: 1.5em;
+    color: #333; /* Color vibrante para el subtítulo */
+}
+
+.hero .btn {
+    background: #5b5d4f;
+    color: #fafcfc;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+    background: #5b5d4f; /* Efecto hover en el botón */
+}
+
+.servicios {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Colores pastel */
+:root {
+    --color-primario: #A8DADC; /* Azul pastel */
+    --color-secundario: #F4A261; /* Naranja pastel */
+    --color-fondo: #F1FAEE; /* Blanco pastel */
+    --color-texto: #1D3557; /* Azul oscuro para contraste */
+    --color-destacado: #E63946; /* Rojo pastel para acentos */
+    --color-servicio-fondo: #FFFFFF; /* Blanco para el fondo de los servicios */
+}
+
+/* Estilos generales para la sección de servicios */
+.servicios {
+    background-color: var(--color-fondo);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.servicios h2 {
+    color: var(--color-primario);
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Contenedor de servicios */
+.servicios-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Estilos para cada servicio */
+.servicio {
+    background-color: var(--color-servicio-fondo);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.servicio h3 {
+    color: var(--color-secundario);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.servicio p {
+    color: var(--color-texto);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Animación de flotación para los servicios */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.servicio {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .servicios-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .servicio {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+}
+}
+
+.servicios-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.servicio {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 30%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio:hover {
+    transform: translateY(-10px); /* Efecto de levantar */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+.servicio h3 {
+    font-size: 1.5em;
+    color: #5b5d4f; /* Color vibrante para los títulos de servicios */
+}
+
+.servicio p {
+    color: #666;
+}
+
+.sobre-nosotros {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.sobre-nosotros h2 {
+    font-size: 2.5em;
+    color: #5b5d4f;
+}
+
+.sobre-nosotros p {
+    color: #666;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacto {
+    padding: 50px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.contacto h2 {
+    font-size: 2.5em;
+    color: #666;
+}
+
+.contacto form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contacto form label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.contacto form input, .contacto form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contacto form button {
+    background: #5b5d4f;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.contacto form button:hover {
+    background: #ff4a3d; /* Efecto hover en el botón */
+}
+
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
